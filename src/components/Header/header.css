@@ -1,0 +1,51 @@
+header {
+    padding: 10px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end
+}
+
+.logo {
+    position: relative;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.logo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+}
+
+.logo span {
+    font-size: 40px;
+    font-weight: 700;
+    margin-left: 40px;
+}
+
+.lang {
+    display: flex;
+    align-items: center;
+}
+
+.lang__wrapper {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lang__wrapper img {
+    height: 30px;
+}
+
+.lang__wrapper span {
+    text-transform: uppercase;
+    color: #666;
+}

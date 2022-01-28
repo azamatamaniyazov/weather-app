@@ -1,0 +1,14 @@
+.city-list {
+    list-style: none;
+    margin: 20px 0;
+    display: flex;
+}
+
+.city-list__item {
+    margin-right: 14px;
+    color: #666;
+}
+
+.city-list__link:hover {
+    color: #F03346;
+}
