@@ -6,7 +6,6 @@ function DailyWeathers({ cityId }) {
   const [dailyWeather, setDailyWeahter] = useState(null);
 
   const { getDailyWeather } = WeatherServices();
-
   useEffect(() => {
     onRequest();
   }, [cityId]);
@@ -31,10 +30,9 @@ function DailyWeathers({ cityId }) {
 const Forecast = ({ dailyWeather }) => {
   const {
     dates: { days, datemonth },
-    dayTimeTemps: { dmax, dmin },
-    nightTimeTemps: { nmax, nmin },
+    dayTimeForecasts: { dmax, dmin, dIcons, dDescriptions },
+    nightTimeForecasts: { nmax, nmin, nIcons, nDescriptions },
   } = dailyWeather;
-
   const items = days.map((item, i) => {
     return (
       <div key={i} className="daily-weather">
@@ -46,26 +44,26 @@ const Forecast = ({ dailyWeather }) => {
           <h4 className="info__title">Днём</h4>
           <img
             className="info__icon"
-            src="http://openweathermap.org/img/wn/10d@2x.png"
+            src={`http://openweathermap.org/img/wn/${dIcons[i]}@2x.png`}
             alt=""
           />
           <div className="info__temp">
             <span>{dmax[i]}&#176;</span>
             <span className="sub">/ {dmin[i]}&#176;</span>
-            <p className="info__desc">переменная облачность</p>
+            <div className="info__desc">{dDescriptions[i]}</div>
           </div>
         </div>
         <div className="info by-day">
           <h4 className="info__title">Вечером</h4>
           <img
             className="info__icon"
-            src="http://openweathermap.org/img/wn/10d@2x.png"
+            src={`http://openweathermap.org/img/wn/${nIcons[i]}@2x.png`}
             alt=""
           />
           <div className="info__temp">
             <span>{nmax[i]}&#176;</span>
             <span className="sub">/ {nmin[i]}&#176;</span>
-            <p className="info__desc">облачно с прояснениями</p>
+            <div className="info__desc">{nDescriptions[i]}</div>
           </div>
         </div>
       </div>

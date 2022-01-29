@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import logo from "../../images/sun-logo.png";
 import russ from "../../images/russ.png";
 import uzb from "../../images/uzb.png";
@@ -10,10 +12,10 @@ function Header() {
       <header>
         <div className="container">
           <div className="header__inner">
-            <div className="logo">
+            <Link to="/" className="logo">
               <img src={logo} alt="logo" />
               <span>Погода</span>
-            </div>
+            </Link>
             <div className="lang">
               <div className="lang__wrapper">
                 <img src={russ} alt="russ" />

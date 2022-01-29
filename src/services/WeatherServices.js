@@ -54,18 +54,23 @@ const WeatherServices = () => {
       daysArr = [...daysArr, filterNightAndDayForecast(daysObj[key])];
     }
     const { daytimeTemps, nighttimeTemps } = sortTemps(daysArr);
+    const { dIcons, nIcons } = sortIcons(daysArr);
+    const { dDescriptions, nDescriptions } = sortDescriptions(daysArr);
 
     const helpFunc = (value) => {
-      const array = value.length > 0 ? value : null;
-      const max = Math.floor(Math.max.apply(null, array));
-      const min = Math.floor(Math.min.apply(null, array));
+      const max = Math.floor(Math.max.apply(null, value));
+      const min = Math.floor(Math.min.apply(null, value));
 
       return { max, min };
     };
 
-    const dates = nextDaysWeahters.map((item) => {
-      return new Date(item.dt_txt.slice(0, 10));
-    });
+    const datesArr = Object.values(daysObj);
+
+    let dates = [];
+
+    for (let i = 0; i < datesArr.length; i++) {
+      dates = [...dates, datesArr[i][0].dt_txt];
+    }
 
     const uniqueDates = Array.from(new Set(dates.map(JSON.stringify)))
       .map(JSON.parse)
@@ -104,23 +109,64 @@ const WeatherServices = () => {
         }),
       },
 
-      dayTimeTemps: {
+      dayTimeForecasts: {
         dmax: daytimeTemps.map((elem) => {
           return helpFunc(elem).max;
         }),
         dmin: daytimeTemps.map((elem) => {
           return helpFunc(elem).min;
         }),
+        dIcons: dIcons.map((item) => {
+          return item[item.length - 1];
+        }),
+        dDescriptions: dDescriptions.map((item) => {
+          return item[item.length - 1];
+        }),
       },
-      nightTimeTemps: {
+      nightTimeForecasts: {
         nmax: nighttimeTemps.map((elem) => {
           return helpFunc(elem).max;
         }),
         nmin: nighttimeTemps.map((elem) => {
           return helpFunc(elem).min;
         }),
+        nIcons: nIcons.map((item) => {
+          return item[item.length - 1];
+        }),
+        nDescriptions: nDescriptions.map((item) => {
+          return item[item.length - 1];
+        }),
       },
+      daysObj,
     };
+  };
+
+  const sortIcons = (icons) => {
+    const dIcons = icons.map((item) => {
+      return item.daytimeForecast.map((elem) => {
+        return elem.weather[0].icon;
+      });
+    });
+    const nIcons = icons.map((item) => {
+      return item.nighttimeForecast.map((elem) => {
+        return elem.weather[0].icon;
+      });
+    });
+    return { dIcons, nIcons };
+  };
+
+  const sortDescriptions = (descriptions) => {
+    const dDescriptions = descriptions.map((item) => {
+      return item.daytimeForecast.map((elem) => {
+        return elem.weather[0].description;
+      });
+    });
+    const nDescriptions = descriptions.map((item) => {
+      return item.nighttimeForecast.map((elem) => {
+        return elem.weather[0].description;
+      });
+    });
+    return { dDescriptions, nDescriptions };
   };
 
   const sortTemps = (temps) => {
