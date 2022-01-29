@@ -12,7 +12,7 @@ function Header() {
       <header>
         <div className="container">
           <div className="header__inner">
-            <Link to="/" className="logo">
+            <Link to="/weather-app" className="logo">
               <img src={logo} alt="logo" />
               <span>Погода</span>
             </Link>

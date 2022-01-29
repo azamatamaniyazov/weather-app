@@ -20,9 +20,12 @@ function App() {
         <div className="container">
           <CityList getCityId={getCityId} />
           <Routes>
-            <Route path="/" element={<ForecastBlocks cityId={601294} />} />
             <Route
-              path="/:citiName"
+              path="/weather-app"
+              element={<ForecastBlocks cityId={601294} />}
+            />
+            <Route
+              path="/weather-app/:citiName"
               element={<ForecastBlocks cityId={cityId} />}
             />
           </Routes>

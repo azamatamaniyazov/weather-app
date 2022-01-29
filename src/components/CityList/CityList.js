@@ -37,7 +37,7 @@ function CityList({ getCityId }) {
     return (
       <li key={i} className="city-list__item">
         <Link
-          to={`/${elem.name}`}
+          to={`/weather-app/${elem.name}`}
           onClick={onSelectCity}
           className="city-list__link"
           data-id={elem.id}
