@@ -69,9 +69,10 @@ const WeatherServices = () => {
     let dates = [];
 
     for (let i = 0; i < datesArr.length; i++) {
-      dates = [...dates, datesArr[i][0].dt_txt];
+      if (datesArr[i].length > 0) {
+        dates = [...dates, datesArr[i][0].dt_txt];
+      }
     }
-
     const uniqueDates = Array.from(new Set(dates.map(JSON.stringify)))
       .map(JSON.parse)
       .map((elem) => {
