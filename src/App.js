@@ -16,20 +16,18 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <div className="main">
-        <div className="container">
-          <CityList getCityId={getCityId} />
-          <Routes>
-            <Route
-              path="/weather-app"
-              element={<ForecastBlocks cityId={601294} />}
-            />
-            <Route
-              path="/weather-app/:citiName"
-              element={<ForecastBlocks cityId={cityId} />}
-            />
-          </Routes>
-        </div>
+      <div className="container">
+        <CityList getCityId={getCityId} />
+        <Routes>
+          <Route
+            path="/weather-app"
+            element={<ForecastBlocks cityId={601294} />}
+          />
+          <Route
+            path="/weather-app/:citiName"
+            element={<ForecastBlocks cityId={cityId} />}
+          />
+        </Routes>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@
 body {
   background-color: #EEEEEE;
   box-sizing: border-box;
+  font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -33,11 +34,84 @@ a {
 }
 
 .container {
-  width: 1120px;
+  max-width: 1090px;
+  padding: 0 15px;
   margin: 0 auto;
 }
 
 .blocks {
   display: flex;
   justify-content: space-between;
+}
+
+
+@media screen and (max-width: 1026px) {
+  .blocks {
+    flex-direction: column;
+    /* align-items: center; */
+  }
+
+  .current-forecast__temp {
+    justify-content: center;
+  }
+
+  .daily-weather {
+    margin-top: 20px;
+  }
+
+  .info__wrapper,
+  .info,
+  .info__temp {
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .left-block {
+    margin-right: 0;
+  }
+
+}
+
+@media screen and (max-width: 670px) {
+  .daily-weather {
+    flex-direction: column;
+    align-items: inherit;
+    padding: 16px;
+  }
+
+  .date {
+    margin-bottom: 7px;
+    text-align: start;
+  }
+
+  .info {
+    flex-direction: column;
+    padding: 0;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+
+  .info {
+    flex-grow: 0;
+  }
+
+  .temp__icon {
+    width: 76px;
+  }
+
+  .temp__val {
+    font-size: 29px;
+  }
+
+  .temp__val .sub {
+    font-size: 14px;
+  }
+
+  .temp__desc {
+    font-size: 14px;
+    letter-spacing: -1px;
+    width: 80px;
+  }
 }

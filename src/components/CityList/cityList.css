@@ -1,12 +1,16 @@
 .city-list {
+    font-size: 14px;
     list-style: none;
-    margin: 20px 0;
-    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .city-list__item {
+    display: inline-block;
     margin-right: 14px;
+    margin-top: 7px;
     color: #666;
+    text-align: center;
 }
 
 .city-list__link:hover {

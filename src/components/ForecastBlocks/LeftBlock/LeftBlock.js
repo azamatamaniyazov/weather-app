@@ -41,28 +41,40 @@ function LeftBlock({ cityId }) {
         Сегодня, <span>{today}</span>
       </div>
       <div className="current-forecast">
-        <span className="forecast__icon">
+        <div className="current-forecast__temp">
           <img
+            className="forecast__icon"
             src={`http://openweathermap.org/img/wn/${transformTimeIcon(
               icon
             )}@2x.png`}
             alt=""
           />
-          {/* <i className="wi wi-day-sunny"></i> */}
-        </span>
-        <span className="forecast__temp">{temp}&#176;</span>
-        <span className="forecast__temp feels-like">{feels}&#176;</span>
-      </div>
-      <div className="current-forecast-desc">{description}</div>
-      <div className="current-forecast-details">
-        <div className="left-details">
-          <p>Влажность: {humidity}</p>
-          <p>Ветер: {wind}</p>
-          <p>Давление: {pressure}</p>
+          <span className="forecast__temp">{temp}&#176;</span>
+          <div className="forecast__info">
+            <div className="forecast__desc">{description}</div>
+            <div className="forecast__feels-temp">
+              <span>Ощущается:</span>
+              <span>{feels}&#176;</span>
+            </div>
+          </div>
         </div>
-        <div className="right-details">
-          <p>Восход: {transformSunTime(sunrise)}</p>
-          <p>Закат: {transformSunTime(sunset)}</p>
+
+        <div className="current-forecast__details">
+          <div className="details__item">
+            <span>Влажность:</span> <span>{humidity}</span>
+          </div>
+          <div className="details__item">
+            <span>Ветер:</span> <span>{wind}</span>
+          </div>
+          <div className="details__item">
+            <span>Давление:</span> <span>{pressure}</span>
+          </div>
+          <div className="details__item">
+            <span>Восход:</span> <span>{transformSunTime(sunrise)}</span>
+          </div>
+          <div className="details__item">
+            <span>Закат:</span> <span>{transformSunTime(sunset)}</span>
+          </div>
         </div>
       </div>
     </div>
