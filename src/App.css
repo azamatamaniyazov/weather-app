@@ -48,11 +48,19 @@ a {
 @media screen and (max-width: 1026px) {
   .blocks {
     flex-direction: column;
-    /* align-items: center; */
+  }
+
+  .current-forecast {
+    display: flex;
   }
 
   .current-forecast__temp {
+    flex-grow: 1;
     justify-content: center;
+  }
+
+  .current-forecast__details {
+    flex-grow: 1;
   }
 
   .daily-weather {
@@ -60,10 +68,14 @@ a {
   }
 
   .info__wrapper,
-  .info,
-  .info__temp {
+  .info {
     flex-grow: 1;
     justify-content: space-between;
+  }
+
+  .info__temp {
+    flex-grow: 1;
+    justify-content: space-around;
   }
 
   .left-block {
@@ -73,10 +85,14 @@ a {
 }
 
 @media screen and (max-width: 670px) {
+  .current-forecast {
+    flex-direction: column;
+  }
+
   .daily-weather {
     flex-direction: column;
     align-items: inherit;
-    padding: 16px;
+    padding: 15px;
   }
 
   .date {
@@ -97,12 +113,16 @@ a {
     flex-grow: 0;
   }
 
+  .date {
+    font-weight: 600;
+  }
+
   .temp__icon {
     width: 76px;
   }
 
   .temp__val {
-    font-size: 29px;
+    font-size: 27px;
   }
 
   .temp__val .sub {
@@ -110,8 +130,10 @@ a {
   }
 
   .temp__desc {
+    margin-top: 3px;
     font-size: 14px;
     letter-spacing: -1px;
+    font-weight: 500;
     width: 80px;
   }
 }

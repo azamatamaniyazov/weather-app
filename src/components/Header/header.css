@@ -1,5 +1,5 @@
 header {
-    padding: 10px 0;
+    padding: 12px 0;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
 }
@@ -13,7 +13,7 @@ header {
 .logo {
     position: relative;
     cursor: pointer;
-    padding-top: 5px;
+    padding-top: 7px;
 }
 
 .logo img {
@@ -24,8 +24,9 @@ header {
 }
 
 .logo span {
-    font-size: 40px;
-    font-weight: 700;
+    letter-spacing: -1px;
+    font-size: 22px;
+    font-weight: 600;
     margin-left: 40px;
 }
 

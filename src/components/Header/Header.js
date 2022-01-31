@@ -14,7 +14,7 @@ function Header() {
           <div className="header__inner">
             <Link to="/weather-app" className="logo">
               <img src={logo} alt="logo" />
-              <span>Погода</span>
+              <span>AzaamWeather</span>
             </Link>
             <div className="lang">
               <div className="lang__wrapper">
